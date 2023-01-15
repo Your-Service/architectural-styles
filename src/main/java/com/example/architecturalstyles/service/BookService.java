@@ -1,10 +1,9 @@
 package com.example.architecturalstyles.service;
 
-import com.example.architecturalstyles.entities.Book;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BookService implements IBookService{
+public class BookService implements IUserService {
 
     @Override
     public Book getBookById(Long id) {

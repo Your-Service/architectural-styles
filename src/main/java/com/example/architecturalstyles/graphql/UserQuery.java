@@ -1,16 +1,15 @@
 package com.example.architecturalstyles.graphql;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import com.example.architecturalstyles.entities.Book;
-import com.example.architecturalstyles.service.IBookService;
+import com.example.architecturalstyles.service.IUserService;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BookQuery implements GraphQLQueryResolver {
+public class UserQuery implements GraphQLQueryResolver {
 
-    private final IBookService service;
+    private final IUserService service;
 
-    public BookQuery(IBookService service) {
+    public UserQuery(IUserService service) {
         this.service = service;
     }
 
