@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import java.util.Set;
 
 @Data
-@Builder
 @RequiredArgsConstructor
 @Entity
 @Table(name = "roles")
@@ -20,7 +19,5 @@ public class Role {
 
     @Column(name = "name")
     String name;
-
-    Set<User> users;
 
 }

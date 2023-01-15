@@ -1,12 +1,15 @@
 package com.example.architecturalstyles.entities;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.UuidGenerator;
+
+import java.util.UUID;
 
 @Data
-@Builder
+@SuperBuilder
 @RequiredArgsConstructor
 @Entity
 @Table(name = "users")
@@ -14,7 +17,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    String id;
+    UUID id;
 
     @Column(name = "first_name")
     String firstName;
@@ -30,4 +33,5 @@ public class User {
 
     @Column(name = "email")
     String email;
+
 }
