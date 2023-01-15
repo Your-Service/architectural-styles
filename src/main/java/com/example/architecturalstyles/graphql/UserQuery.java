@@ -1,6 +1,7 @@
 package com.example.architecturalstyles.graphql;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import com.example.architecturalstyles.entities.User;
 import com.example.architecturalstyles.service.IUserService;
 import org.springframework.stereotype.Component;
 
@@ -13,8 +14,8 @@ public class UserQuery implements GraphQLQueryResolver {
         this.service = service;
     }
 
-    public Book getBook() {
-        return service.getBookById(123L);
+    public User getUser() {
+        return service.getUserById(123L);
     }
 
 }

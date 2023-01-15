@@ -4,6 +4,6 @@ import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserMutatution implements GraphQLMutationResolver {
+public class UserMutation implements GraphQLMutationResolver {
 
 }
