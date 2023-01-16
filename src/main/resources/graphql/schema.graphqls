@@ -12,5 +12,5 @@ type Query {
 }
 
 type Mutation {
-    createBook(firstName: String, lastName: String!, age: Int!, phoneNumber: String!, email: String!): User
+    createUser(firstName: String, lastName: String!, age: Int!, phoneNumber: String!, email: String!): User
 }
