@@ -1,16 +1,24 @@
 type User {
-    id: ID!,
-    firstName: String,
-    lastName: String,
-    age: Int,
-    phoneNumber: String,
-    email: String,
+    id: ID
+    firstName: String
+    lastName: String
+    age: Int
+    phoneNumber: String
+    email: String
+}
+
+input UserInput {
+    firstName: String!
+    lastName: String
+    age: Int
+    phoneNumber: String
+    email: String!
 }
 
 type Query {
-    getUser(id: ID): User
+    getUser(id: ID!): User
 }
 
 type Mutation {
-    createUser(firstName: String, lastName: String!, age: Int!, phoneNumber: String!, email: String!): User
+    createUser(user: UserInput!): User
 }
