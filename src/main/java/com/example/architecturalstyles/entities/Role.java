@@ -19,10 +19,15 @@ public class Role {
 
     @Id
     @GeneratedValue(generator = "uuid4")
-    UUID id;
+    private UUID id;
 
     @Column(name = "name")
-    String name;
+    private String name;
 
-    Set<User> users;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "roles_2_user",
+            joinColumns = @JoinColumn (name = "role_id"),
+            inverseJoinColumns = @JoinColumn (name = "user_id")
+    )
+    private Set<User> users;
 }

@@ -8,4 +8,6 @@ public interface IUserService {
     User getUserById(String id);
     List<User> getAllUsersFromDB();
     User saveUser(User user);
+    User updateUser(String id, User user);
+    void deleteUserById(String id);
 }

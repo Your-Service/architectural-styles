@@ -19,24 +19,28 @@ public class User {
 
     @Id
     @GeneratedValue(generator = "uuid4")
-    UUID id;
+    private UUID id;
 
     @Column(name = "first_name")
-    String firstName;
+    private String firstName;
 
     @Column(name = "last_name")
-    String lastName;
+    private String lastName;
 
     @Column(name = "age")
-    Integer age;
+    private Integer age;
 
     @Column(name = "phone_number")
-    String phoneNumber;
+    private String phoneNumber;
 
     @Column(name = "email")
-    String email;
+    private String email;
 
-
-    Set<Role> roles;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "roles_2_user",
+            joinColumns = @JoinColumn (name = "user_id"),
+            inverseJoinColumns = @JoinColumn (name = "role_id")
+    )
+    private Set<Role> roles;
 
 }

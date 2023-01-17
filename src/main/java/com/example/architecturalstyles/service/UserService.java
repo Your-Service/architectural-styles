@@ -25,8 +25,17 @@ public class UserService implements IUserService {
     }
 
     public User saveUser(User user) {
-        User savedUser = repo.save(user);
-        return savedUser;
+        return repo.save(user);
+    }
+
+    public User updateUser(String id, User user) {
+        User userFromDB = getUserById(id);
+
+        return null;
+    }
+
+    public void deleteUserById(String id) {
+
     }
 
 }
