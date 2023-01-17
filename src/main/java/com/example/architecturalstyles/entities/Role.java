@@ -1,10 +1,13 @@
 package com.example.architecturalstyles.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-
+import java.util.Set;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -15,11 +18,11 @@ import org.hibernate.annotations.GenericGenerator;
 public class Role {
 
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    String id;
+    @GeneratedValue(generator = "uuid4")
+    UUID id;
 
     @Column(name = "name")
     String name;
 
+    Set<User> users;
 }

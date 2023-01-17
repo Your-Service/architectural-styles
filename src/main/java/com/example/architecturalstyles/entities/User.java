@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -34,5 +35,8 @@ public class User {
 
     @Column(name = "email")
     String email;
+
+
+    Set<Role> roles;
 
 }

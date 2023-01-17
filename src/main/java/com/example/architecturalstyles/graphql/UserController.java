@@ -7,6 +7,8 @@ import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
+import java.util.List;
+
 @Controller
 public class UserController {
 
@@ -21,9 +23,14 @@ public class UserController {
         return service.getUserById(id);
     }
 
+    @QueryMapping
+    public List<User> getListAllUsers() {
+        return service.getAllUsersFromDB();
+    }
+
     @MutationMapping
-    public void createUser(@Argument User user) {
-        service.saveUser(user);
+    public User createUser(@Argument User user) {
+        return service.saveUser(user);
     }
 
 }

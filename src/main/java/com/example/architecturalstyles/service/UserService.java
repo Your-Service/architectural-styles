@@ -1,28 +1,32 @@
 package com.example.architecturalstyles.service;
 
 import com.example.architecturalstyles.entities.User;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
+import com.example.architecturalstyles.repo.UserRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
-@Transactional(readOnly = true)
 public class UserService implements IUserService {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    private final UserRepository repo;
 
-    @Transactional
-    public User getUserById(String id) {
-        return entityManager.find(User.class, UUID.fromString(id));
+    public UserService(UserRepository repo) {
+        this.repo = repo;
     }
 
-    @Transactional
-    public void saveUser(User user) {
-        entityManager.persist(user);
+    public User getUserById(String id) {
+        return repo.getReferenceById(UUID.fromString(id));
+    }
+
+    public List<User> getAllUsersFromDB() {
+        return repo.findAll();
+    }
+
+    public User saveUser(User user) {
+        User savedUser = repo.save(user);
+        return savedUser;
     }
 
 }
