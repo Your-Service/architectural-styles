@@ -33,4 +33,6 @@ type Query {
 type Mutation {
     createUser(user: UserInput!): User
     createRole(role: RoleInput!): Role
+    updateUser(id: ID!, user: UserInput!): User
+    deleteUser(id: ID!): Boolean
 }

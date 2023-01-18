@@ -3,6 +3,7 @@ package com.example.architecturalstyles.graphql;
 import com.example.architecturalstyles.entities.User;
 import com.example.architecturalstyles.service.IUserService;
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.Arguments;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,16 @@ public class UserController {
     @MutationMapping
     public User createUser(@Argument User user) {
         return service.saveUser(user);
+    }
+
+    @MutationMapping
+    public User updateUser(@Argument String id, @Argument User user) {
+        return service.updateUser(id, user);
+    }
+
+    @MutationMapping
+    public void deleteUser(@Argument String id) {
+        service.deleteUserById(id);
     }
 
 }

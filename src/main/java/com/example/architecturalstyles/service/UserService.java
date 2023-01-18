@@ -29,13 +29,12 @@ public class UserService implements IUserService {
     }
 
     public User updateUser(String id, User user) {
-        User userFromDB = getUserById(id);
-
-        return null;
+        user.setId(UUID.fromString(id));
+        return repo.save(user);
     }
 
     public void deleteUserById(String id) {
-
+        repo.deleteById(UUID.fromString(id));
     }
 
 }
