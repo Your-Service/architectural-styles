@@ -34,8 +34,10 @@ public class User {
     String email;
 
     @ManyToMany(cascade = CascadeType.MERGE)
-            @JoinTable(name = "roles_2_user",
-            joinColumns = @JoinColumn "role_id",
-            inverseJoinColumns = @I "user_id")
+    @JoinTable(name = "roles_2_user",
+            joinColumns = @JoinColumn (name = "user_id"),
+            inverseJoinColumns = @JoinColumn (name = "role_id")
+    )
     Set<Role> roles;
+
 }
