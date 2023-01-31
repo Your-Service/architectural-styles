@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+import java.util.Set;
+
 @Data
 @Builder
 @RequiredArgsConstructor
@@ -30,4 +32,10 @@ public class User {
 
     @Column(name = "email")
     String email;
+
+    @ManyToMany(cascade = CascadeType.MERGE)
+            @JoinTable(name = "roles_2_user",
+            joinColumns = @JoinColumn "role_id",
+            inverseJoinColumns = @I "user_id")
+    Set<Role> roles;
 }
