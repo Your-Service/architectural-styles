@@ -6,8 +6,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+
+/**
+ * Сущность Role
+ * @author Besaev
+ */
 
 @Getter
 @Setter
@@ -24,10 +30,6 @@ public class Role {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "roles_2_user",
-            joinColumns = @JoinColumn (name = "role_id"),
-            inverseJoinColumns = @JoinColumn (name = "user_id")
-    )
-    private Set<User> users;
+    @ManyToMany(mappedBy = "roles")
+    private List<User> users;
 }

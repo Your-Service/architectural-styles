@@ -5,9 +5,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+
+/**
+ * Сущность User
+ * @author Besaev
+ */
 
 @Getter
 @Setter
@@ -36,11 +43,11 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "roles_2_user",
             joinColumns = @JoinColumn (name = "user_id"),
             inverseJoinColumns = @JoinColumn (name = "role_id")
     )
-    private Set<Role> roles;
+    private List<Role> roles;
 
 }

@@ -10,7 +10,6 @@ import java.util.UUID;
 @Repository
 public interface RoleRepository extends JpaRepository<Role, UUID> {
 
-    @Query("SELECT r FROM Role r WHERE r.name = :roleName")
     Role findRoleByName(String roleName);
 
 }

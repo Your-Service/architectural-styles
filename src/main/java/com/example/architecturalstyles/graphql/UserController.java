@@ -3,7 +3,6 @@ package com.example.architecturalstyles.graphql;
 import com.example.architecturalstyles.entities.User;
 import com.example.architecturalstyles.service.IUserService;
 import org.springframework.graphql.data.method.annotation.Argument;
-import org.springframework.graphql.data.method.annotation.Arguments;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
@@ -20,8 +19,8 @@ public class UserController {
     }
 
     @QueryMapping
-    public User getUser(@Argument String id) {
-        return service.getUserById(id);
+    public User getUser(@Argument String email) {
+        return service.getUserByEmail(email);
     }
 
     @QueryMapping
@@ -30,7 +29,7 @@ public class UserController {
     }
 
     @MutationMapping
-    public User createUser(@Argument User user) {
+    public User createUser(@Argument User user) throws Exception {
         return service.saveUser(user);
     }
 
